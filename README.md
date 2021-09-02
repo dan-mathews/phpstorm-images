@@ -1,6 +1,4 @@
-#PhpStorm Images
-This repository is to document the Dockerfiles used to create the images which support the 
-[travis-phpstorm-inspector](https://github.com/dan-mathews/travis-phpstorm-inspector) project.  
-The built images are in [dockerhub](https://hub.docker.com/u/danmathews1).
+# phpstorm images
+This is a repository of Dockerfiles to build the images for use with [travis-phpstorm-inspector](https://github.com/dan-mathews/travis-phpstorm-inspector).
 
-The naming convention for the images is `[image tag]-[php tag]-[phpstorm tag]-[plugin-tag(s)]`
+The images themselves are in the [phpstorm-images dockerhub repository](https://hub.docker.com/r/danmathews1/phpstorm-images).
