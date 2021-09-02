@@ -13,6 +13,8 @@ RUN curl -Lo java.tar.gz https://javadl.oracle.com/webapps/download/AutoDL?Bundl
 
 RUN tar -xzf java.tar.gz --one-top-level --strip-components 1
 
-RUN curl -Lo ea_inspections.jar https://plugins.jetbrains.com/files/7622/122694/PhpInspectionsEA.jar?updateId=122694&pluginId=7622&family=INTELLIJ
+WORKDIR /PhpStorm/plugins
 
-RUN mv ea_inspections.jar PhpStorm/plugins
+RUN curl -Lo ea_inspections.jar https://plugins.jetbrains.com/files/7622/122694/PhpInspectionsEA.jar?pluginId=7622
+
+WORKDIR /
