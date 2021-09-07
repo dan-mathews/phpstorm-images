@@ -1,14 +1,17 @@
-FROM php:7.3-cli
+FROM openjdk:11.0.12-jdk
+
+#FROM alpine:3.13.6 needs java separately
+
+#FROM openjdk:18-jdk-slim doesn't work
+
+#FROM openjdk:11.0.12-slim doesn't work
 
 RUN apt-get update && apt-get install -y \
     curl \
-    git \
     zip
 
-RUN curl -Lo PhpStorm.tar.gz https://download.jetbrains.com/webide/PhpStorm-2021.1.2.tar.gz
+RUN curl -Ls https://download.jetbrains.com/webide/PhpStorm-2021.1.2.tar.gz | tar -xvz
 
-RUN tar -xzf PhpStorm.tar.gz --one-top-level --strip-components 1
-
-RUN curl -Lo java.tar.gz https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244575_d7fc238d0cbf4b0dac67be84580cfb4b
-
-RUN tar -xzf java.tar.gz --one-top-level --strip-components 1
+# the directory name is unpredictable, containing the phpstorm version number e.g. PhpStorm-211.7142.44
+# here we symlink the script to a predictable location for use by the app
+RUN ln -s $(find . -type d -name "PhpStorm-*")/bin/phpstorm.sh phpstorm.sh
